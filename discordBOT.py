@@ -12,7 +12,10 @@ async def on_message(message):
     if message.author == client.user:
         return
     
-    if message.content.startswith('Hello'):
+    if message.content.startswith('Hello AtBot'):
         await message.channel.send('Hello!')
 
-client.run('MTMxMzE0MTc5Mjk5NjMyNzUxNQ.GfNlys.NnKuaDDHd5YBqJfjwRIE3lbuISPrkH2N3nT3ks')
+    if message.content.startswith('How are you?'):
+        await message.channel.send("I'm Pretty fine and you?")
+
+client.run('MTMxMzY0NTM4NzkxMDc0NjEyMg.GiJnSi.45RK4BxPMGgoXrzSDZLPjzVnwTDsauEW59HY_Y')
