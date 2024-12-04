@@ -1,4 +1,5 @@
 import discord
+import os
 
 client = discord.Client()
 
@@ -18,4 +19,4 @@ async def on_message(message):
     if message.content.startswith('How are you?'):
         await message.channel.send("I'm Pretty fine and you?")
 
-client.run('MTMxMzY0NTM4NzkxMDc0NjEyMg.GiJnSi.45RK4BxPMGgoXrzSDZLPjzVnwTDsauEW59HY_Y')
+client.run(os.getenv('TOKEN'))
