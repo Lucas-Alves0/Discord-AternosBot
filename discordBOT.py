@@ -1,8 +1,9 @@
 import discord
-import os
 
 client = discord.Client()
-
+token = {
+    'TOKEN':'MTMxMzY0NTM4NzkxMDc0NjEyMg.GiJnSi.45RK4BxPMGgoXrzSDZLPjzVnwTDsauEW59HY_Y'
+}
 @client.event
 async def on_ready():
     print(f"We've logged in as {client.user}")
@@ -19,4 +20,4 @@ async def on_message(message):
     if message.content.startswith('How are you?'):
         await message.channel.send("I'm Pretty fine and you?")
 
-client.run(os.getenv('TOKEN'))
+client.run(token['TOKEN'])
