@@ -21,6 +21,17 @@ try:
     myserv.fetch()
     print(myserv.status)
 except:
-    while myserv.status != 'online':
-        myserv.fetch()
-        print(myserv.status)
+    while myserv.status == 'waiting':
+        sleep(20)
+        try:
+            myserv.confirm()
+        except:
+            myserv.fetch()
+            print('The server is ', myserv.status)
+    else:
+        while myserv.status != 'online':
+            myserv.fetch()
+            print('The server is ', myserv.status)
+        else:
+            myserv.fetch()
+            print('The server is ', myserv.status)
