@@ -15,13 +15,11 @@ myserv = servs[1]
 
 
 try:
-    myserv.fetch()
-    print(myserv.status)
     myserv.start(headstart=True)
     myserv.fetch()
     print(myserv.status)
     while myserv.status == 'waiting':
-        sleep(20)
+        sleep(10)
         try:
             myserv.confirm()
         except:
@@ -29,6 +27,7 @@ try:
             print('The server still', myserv.status)
     else:
         while myserv.status != 'online':
+            sleep(10)
             myserv.fetch()
             print('The server is', myserv.status)
         else:
@@ -36,7 +35,7 @@ try:
             print('The server is', myserv.status)
 except:
     while myserv.status == 'waiting':
-        sleep(20)
+        sleep(10)
         try:
             myserv.confirm()
         except:
@@ -44,6 +43,7 @@ except:
             print('The server is ', myserv.status)
     else:
         while myserv.status != 'online':
+            sleep(10)
             myserv.fetch()
             print('The server is ', myserv.status)
         else:
