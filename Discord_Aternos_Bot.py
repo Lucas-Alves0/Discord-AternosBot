@@ -49,16 +49,13 @@ async def on_message(message):
 @dcbot.command(name='iniciar')
 async def iniciar(ctx):
   myserv.fetch()
-  if myserv.status == 'online':
-    pass
-  else:
-    await ctx.send('Abrindo servidor...')
 
   try:
+    await ctx.send('Abrindo servidor...')
     myserv.start(headstart=True)
     myserv.fetch()
     await ctx.send(
-        f'O servidor está iniciando, aguarde\n\nStatus de abertura do servidor: {myserv.status}'
+        f'O servidor está iniciando, aguarde\n\nStatus do servidor: {myserv.status}'
     )
   except ServerStartError:
     await ctx.send('O servidor já está iniciando')
@@ -72,14 +69,15 @@ async def parar(ctx):
   try:
     myserv.stop()
   except Exception as e:
-    await ctx.send(f'Ocorreu um erro inesperado: {e}')
+    await ctx.send(f'O servidor já está sendo fechado!')
   while myserv.status != 'offline':
     myserv.fetch()
     await ctx.send(
         f'O servidor está sendo fechado, aguarde\n\nStatus de fechamento do servidor: {myserv.status}'
     )
+    sleep(10)
   else:
-    sleep(15)
+    sleep(10)
     myserv.fetch()
     await ctx.send(f'Servidor: {myserv.status}')
 
@@ -97,6 +95,13 @@ async def jogadores(ctx):
       f'Jogadores online:\n\n{myserv.players_list}\n\n{myserv.players_count} de {myserv.slots} jogadores online'
   )
 
+
+@dcbot.command(name='server')
+async def server(ctx):
+  myserv.fetch()
+  await ctx.send(
+    f'Endereço:{myserv.domain}\nPorta:{myserv.port}'
+  )
 
 @dcbot.command(name='ajuda')
 async def ajuda(ctx):
