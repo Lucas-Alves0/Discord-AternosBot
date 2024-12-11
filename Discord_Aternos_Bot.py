@@ -102,6 +102,7 @@ async def server(ctx):
   await ctx.send(
     f'Endereço:{myserv.domain}\nPorta:{myserv.port}'
   )
+  
 
 @dcbot.command(name='ajuda')
 async def ajuda(ctx):
