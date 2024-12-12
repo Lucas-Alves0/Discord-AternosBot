@@ -46,6 +46,13 @@ async def on_message(message):
   await dcbot.process_commands(message)
 
 
+@dcbot.event
+async def on_member_join(member):
+  channel = dcbot.get_channel('1308960430911393917')
+  myserv.fetch()
+  await channel.send(f'Seja muito bem vindo {member.mention}, aproveite a play com todos os outros.\n\nEndereço do servidor: {myserv.domain}\n\nPorta: {myserv.port}')
+
+
 @dcbot.command(name='iniciar')
 async def iniciar(ctx):
   myserv.fetch()
@@ -96,18 +103,18 @@ async def jogadores(ctx):
   )
 
 
-@dcbot.command(name='server')
-async def server(ctx):
+@dcbot.command(name='infoserver')
+async def infoserver(ctx):
   myserv.fetch()
   await ctx.send(
     f'Endereço:{myserv.domain}\nPorta:{myserv.port}'
   )
-  
+
 
 @dcbot.command(name='ajuda')
 async def ajuda(ctx):
   await ctx.send(
-      'Comandos:\n\n!iniciar - Inicia o servidor\n!parar - Para o servidor\n!status - Mostra o status do servidor\n!jogadores - Mostra os jogadores online\n!ajuda - Mostra os comandos'
+      'Comandos:\n\n!iniciar - Inicia o servidor\n!parar - Para o servidor\n!status - Mostra o status do servidor\n!jogadores - Mostra os jogadores online\n!infoserver - Mostra o endereço e porta do servidor\n!ajuda - Mostra os comandos'
   )
 
 
