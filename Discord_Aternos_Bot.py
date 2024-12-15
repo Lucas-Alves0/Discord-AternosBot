@@ -50,7 +50,7 @@ async def on_message(message):
 async def on_member_join(member):
   channel = dcbot.get_channel('1308960430911393917')
   myserv.fetch()
-  await channel.send(f'Seja muito bem vindo {member.mention}, aproveite a play com todos os outros.\n\nEndereço do servidor: {myserv.domain}\n\nPorta: {myserv.port}')
+  await channel.send(f'Seja muito bem vindo {member.mention}, aproveite a play com todos os outros.\n\nEndereço do servidor: {myserv.domain}\nPorta: {myserv.port}')
 
 
 @dcbot.command(name='iniciar')
