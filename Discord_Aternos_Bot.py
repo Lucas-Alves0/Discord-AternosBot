@@ -107,7 +107,7 @@ async def jogadores(ctx):
 async def infoserver(ctx):
   myserv.fetch()
   await ctx.send(
-    f'Endereço:{myserv.domain}\nPorta:{myserv.port}'
+    f'Endereço: {myserv.domain}\nPorta: {myserv.port}'
   )
 
 
