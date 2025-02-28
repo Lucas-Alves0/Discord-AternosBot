@@ -1,0 +1,5 @@
+# Bibliotecas Necessárias
+
+python-aternos
+discord
+time

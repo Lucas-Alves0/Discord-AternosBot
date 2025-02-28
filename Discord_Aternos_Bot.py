@@ -8,8 +8,7 @@ from keep_alive import keep_alive
 # Aternos instance
 
 atclient = aternos.Client()
-user = {'username':'SrLks7162', 'password':'L6070al#'}
-atclient.login(str(user['username']),str(user['password']))
+atclient.login(str('User123'),str('Password123'))
 atlog = atclient.account
 
 servs = atlog.list_servers()
@@ -22,11 +21,6 @@ myserv.fetch()
 intents = discord.Intents.default()
 intents.message_content = True  # Caso precise ler o conteúdo da mensagem
 dcbot = commands.Bot(command_prefix="!", intents=intents)
-dctoken = {
-    'TOKEN':
-    'MTMxMzY0NTM4NzkxMDc0NjEyMg.GSY92J.argtbVI8M3VvMjztAbojaj5ZcP1ka4Brc3gyqk'
-}
-
 
 @dcbot.event
 async def on_ready():
@@ -48,7 +42,7 @@ async def on_message(message):
 
 @dcbot.event
 async def on_member_join(member):
-  channel = dcbot.get_channel('1308960430911393917')
+  channel = dcbot.get_channel('Channel ID')
   myserv.fetch()
   await channel.send(f'Seja muito bem vindo {member.mention}, aproveite a play com todos os outros.\n\nEndereço do servidor: {myserv.domain}\nPorta: {myserv.port}')
 
@@ -119,4 +113,4 @@ async def ajuda(ctx):
 
 
 keep_alive()
-dcbot.run(dctoken['TOKEN'])
+dcbot.run('Your discord bot TOKEN here')
