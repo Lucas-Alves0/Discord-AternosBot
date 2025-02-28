@@ -1,6 +1,6 @@
 # Discord-AternosBot
 
-Este é um bot do Discord que interage com o serviço de hospedagem de servidores Aternos. Ele permite que você inicie, pare e verifique o status do seu servidor Aternos diretamente do Discord.
+Este é um bot do Discord que interage com o serviço de hospedagem de servidores para Minecraft Aternos. Ele permite que você inicie, pare e verifique o status do seu servidor Aternos diretamente do Discord.
 
 ## Funcionalidades
 
